@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import uz.pdp.springbootwithmongodb.controller.StudentRepository;
+import uz.pdp.springbootwithmongodb.repository.StudentRepository;
 import uz.pdp.springbootwithmongodb.domains.entity.Address;
 import uz.pdp.springbootwithmongodb.domains.entity.Gender;
 import uz.pdp.springbootwithmongodb.domains.entity.Student;
@@ -48,14 +48,18 @@ public class SpringBootWithMongoDbApplication {
 
             // usingMongoTemplateAndQuery(repository, mongoTemplate, email, student);
 
-            repository.findStudentByEmail(email)
-                    .ifPresentOrElse(s -> {
-                        System.out.println(student + " already exists");
-                    }, () -> {
-                        System.out.println("Inserting student " + student);
-                        repository.insert(student);
-                    });
+            // usingMongoRepository(repository, email, student);
         };
+    }
+
+    private static void usingMongoRepository(StudentRepository repository, String email, Student student) {
+        repository.findStudentByEmail(email)
+                .ifPresentOrElse(s -> {
+                    System.out.println(student + " already exists");
+                }, () -> {
+                    System.out.println("Inserting student " + student);
+                    repository.insert(student);
+                });
     }
 
     private static void usingMongoTemplateAndQuery(StudentRepository repository, MongoTemplate mongoTemplate, String email, Student student) {

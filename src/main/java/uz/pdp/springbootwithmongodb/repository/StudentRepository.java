@@ -1,4 +1,4 @@
-package uz.pdp.springbootwithmongodb.controller;
+package uz.pdp.springbootwithmongodb.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import uz.pdp.springbootwithmongodb.domains.entity.Student;
