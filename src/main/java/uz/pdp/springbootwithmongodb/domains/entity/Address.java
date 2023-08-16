@@ -1,5 +1,10 @@
 package uz.pdp.springbootwithmongodb.domains.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Address {
 
     private String country;
