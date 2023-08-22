@@ -48,7 +48,7 @@ public class SpringBootWithMongoDbApplication {
 
             // usingMongoTemplateAndQuery(repository, mongoTemplate, email, student);
 
-            // usingMongoRepository(repository, email, student);
+             usingMongoRepository(repository, email, student);
         };
     }
 
